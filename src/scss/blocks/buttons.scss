@@ -1,1 +1,9 @@
 
+.button{
+    &--reset{
+        display: none;
+        &-show{
+            display: block;
+        }
+    }
+}

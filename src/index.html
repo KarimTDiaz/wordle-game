@@ -10,11 +10,9 @@
     <title>Vite Template</title>
   </head>
   <body>
-    <header class="header"></header>
     <main class="main">
       <h1 class="title">WORDLE</h1>
       <div id="game-board" class="game-board">
-        
       </div>
       <form id="user-word-form">
         <input
@@ -24,6 +22,9 @@
           placeholder="type your solution"
         />
       </form>
+      <div id="popup" class="popup">
+      </div>
+      <button id="reset-button" class="button button--reset">RESET GAME</button>
     </main>
     <footer class="footer"></footer>
     <script type="module" src="./js/index.js"></script>

@@ -1,6 +1,10 @@
 :root {
   --background-color: black;
   --body-color:white;
+  --gradient:linear-gradient(to left , #bfbbff 0, #ae8bff 25%, #8769eb 50%, #a383cc 75%, #8c5aae 100%);
+  --letter-correct: rgb(65, 170, 65);
+  --letter-contains: rgb(244, 138, 112);
+  --letter-not-included:grey;
   --grid-columns: 0;
   
 }

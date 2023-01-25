@@ -1,10 +1,25 @@
-import { ALL_WORDS } from './words.js';
+import { checkWinner } from "./check-winner.js";
+import { wordChosen } from "./word.js";
 
-const typeSolution = (word, gameBoardElement) => {
-  if (word.length !== 5) return;
+let rowCounter = 0;
+
+const typeSolution = (word, gameBoard) => {
+
   for (let index = 0; index < word.length; index++) {
-    gameBoardElement.children[0].children[index].texContent = word[index];
+    let letter = word[index]
+    let box =  gameBoard.children[rowCounter].children[index]
+    box.textContent = letter;
+    if(letter === wordChosen[index]){
+      box.classList.add('letter-correct')
+    } else if(wordChosen.includes(letter)){
+      box.classList.add('letter-contains')
+    }else{
+      box.classList.add('letter-not-included')
+    }
+    
   }
+  rowCounter++
 };
 
 export { typeSolution };
+export {rowCounter};
