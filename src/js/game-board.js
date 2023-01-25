@@ -1,8 +1,18 @@
+import { gameBoardElement, popupElement, formElement } from "./constans";
+import { chooseWord, wordChosen } from "./word";
 
-// const rootStyles = document.documentElement.style;
-let wordLength = 5;
-let wordContainers = 5;
+let wordLength = 5
+let wordContainers = 5
+let rowCounter = 0;
 
+
+/* const advancedWords = () => {
+  let advancedWordschosen = wordChosen
+  wordLength = advancedWordschosen.length
+  let advancedTries = wordChosen
+  wordContainers = advancedTries.length
+  console.log(wordLength)
+} */
 const createGameBoard = gameBoardElement => {
   const gameFragment = document.createDocumentFragment();
 
@@ -17,11 +27,23 @@ const createGameBoard = gameBoardElement => {
       createBoxContainers.append(createBox);
     }
   }
- 
-
   gameBoardElement.append(gameFragment);
 };
 
-export { createGameBoard };
-export {wordLength}
-export {wordContainers}
+const incrementRowCounter = () => rowCounter++;
+const resetRowCounter = () => rowCounter = 0;
+
+const reset = () =>{
+  resetRowCounter()
+  gameBoardElement.innerHTML = ''
+  createGameBoard(gameBoardElement)
+  chooseWord()
+  /* advancedWords() */
+  const timeOutId = setTimeout(() =>{
+    popupElement.classList.remove('popup--show')
+    formElement.children[0].removeAttribute('disabled')
+    clearTimeout(timeOutId)
+}, 300)
+}
+
+export { createGameBoard , wordLength, wordContainers, rowCounter, incrementRowCounter, resetRowCounter ,reset/* ,advancedWords */};

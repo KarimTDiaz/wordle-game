@@ -1,11 +1,24 @@
-import { ALL_WORDS } from "./constans.js";
+import { ALL_WORDS, ALL_WORDS_ADVANCED_MODE } from "./constans.js";
+
 
 let wordChosen;
+let advancedMode = false
 
 const chooseWord = () => {
-    wordChosen = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)]
-
+    if(advancedMode){
+       wordChosen = ALL_WORDS_ADVANCED_MODE[Math.floor(Math.random() * ALL_WORDS_ADVANCED_MODE.length)]
+    }else{
+        wordChosen = ALL_WORDS[Math.floor(Math.random() * ALL_WORDS.length)]
+    }
+        
+        console.log(wordChosen)
 }
+console.log(advancedMode)
 
-export {chooseWord}
-export {wordChosen}
+
+const changeMode = () =>{
+    advancedMode = !advancedMode
+    console.log(advancedMode)
+} 
+
+export {chooseWord, wordChosen,changeMode}

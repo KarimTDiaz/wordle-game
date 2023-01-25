@@ -1,11 +1,9 @@
 import { wordLength } from "./game-board.js"
-import { rowCounter } from "./type-solution.js";
+import { rowCounter } from "./game-board.js";
 import { wordContainers } from "./game-board.js";
 import { formElement } from "./constans.js";
 import { resetElement } from './constans.js';
-
-const popupElement = document.getElementById('popup')
-
+import { popupElement } from "./constans.js";
 
 const checkWinner = (wordCreated, wordChosen) => {
     popupElement.innerHTML= '';
@@ -28,16 +26,12 @@ const checkWinner = (wordCreated, wordChosen) => {
     } else if(rowCounter === wordContainers){
         newWindow.textContent = `Has fallado, la palabra correcta era ${wordChosen.toUpperCase()}`
         popupElement.classList.add('popup--show')
+        resetElement.classList.add('button--reset-show')
         formElement.children[0].setAttribute('disabled', true)
-        const timeOutId = setTimeout(() =>{
-            popupElement.classList.remove('popup--show')
-            formElement.children[0].removeAttribute('disabled')
-            resetElement.classList.add('button--reset-show')
-            clearTimeout(timeOutId)
-        }, 4000)
     }
     
     popupElement.append(newWindow)
 }
 
 export {checkWinner}
+export {popupElement}
