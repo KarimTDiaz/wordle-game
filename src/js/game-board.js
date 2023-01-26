@@ -1,18 +1,16 @@
-import { gameBoardElement, popupElement, formElement } from "./constans";
-import { chooseWord, wordChosen } from "./word";
+import { gameBoardElement, popupElement, formElement } from './constans';
+import { chooseWord, wordChosen } from './word';
 
-let wordLength = 5
-let wordContainers = 5
+let wordLength = 5;
+let wordContainers = 5;
 let rowCounter = 0;
 
-
 const advancedWords = () => {
-  let advancedWordschosen = wordChosen
-  wordLength = advancedWordschosen.length
-  let advancedTries = wordChosen
-  wordContainers = advancedTries.length
-  console.log(wordLength)
-}
+  let advancedWordschosen = wordChosen;
+  wordLength = advancedWordschosen.length;
+  let advancedTries = wordChosen;
+  wordContainers = advancedTries.length;
+};
 const createGameBoard = gameBoardElement => {
   const gameFragment = document.createDocumentFragment();
 
@@ -31,19 +29,27 @@ const createGameBoard = gameBoardElement => {
 };
 
 const incrementRowCounter = () => rowCounter++;
-const resetRowCounter = () => rowCounter = 0;
+const resetRowCounter = () => (rowCounter = 0);
 
-const reset = () =>{
-  resetRowCounter()
-  gameBoardElement.innerHTML = ''
-  createGameBoard(gameBoardElement)
-  advancedWords()
-  chooseWord()
-  const timeOutId = setTimeout(() =>{
-    popupElement.classList.remove('popup--show')
-    formElement.children[0].removeAttribute('disabled')
-    clearTimeout(timeOutId)
-}, 300)
-}
+const reset = () => {
+  resetRowCounter();
+  gameBoardElement.innerHTML = '';
+  createGameBoard(gameBoardElement);
+  advancedWords();
+  chooseWord();
+  const timeOutId = setTimeout(() => {
+    popupElement.classList.remove('popup--show');
+    formElement.children[0].removeAttribute('disabled');
+    clearTimeout(timeOutId);
+  }, 300);
+};
 
-export { createGameBoard , wordLength, wordContainers, rowCounter, incrementRowCounter, resetRowCounter ,reset/* ,advancedWords */};
+export {
+  createGameBoard,
+  wordLength,
+  wordContainers,
+  rowCounter,
+  incrementRowCounter,
+  resetRowCounter,
+  reset /* ,advancedWords */
+};
