@@ -6,13 +6,13 @@ let wordContainers = 5
 let rowCounter = 0;
 
 
-/* const advancedWords = () => {
+const advancedWords = () => {
   let advancedWordschosen = wordChosen
   wordLength = advancedWordschosen.length
   let advancedTries = wordChosen
   wordContainers = advancedTries.length
   console.log(wordLength)
-} */
+}
 const createGameBoard = gameBoardElement => {
   const gameFragment = document.createDocumentFragment();
 
@@ -37,8 +37,8 @@ const reset = () =>{
   resetRowCounter()
   gameBoardElement.innerHTML = ''
   createGameBoard(gameBoardElement)
+  advancedWords()
   chooseWord()
-  /* advancedWords() */
   const timeOutId = setTimeout(() =>{
     popupElement.classList.remove('popup--show')
     formElement.children[0].removeAttribute('disabled')
